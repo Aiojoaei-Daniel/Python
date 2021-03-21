@@ -19,23 +19,24 @@ def create_board():
 
 
 def drop_piece(board, row, col, piece):
-    board[row][col] = piece                  #board[r(care o sa fie un anumit numar daca in functia get_next_open_row r =
+    board[row][col] = piece                  
 
 
 # verificam daca coloana aleasa este valida
 def is_valid_location(board, col):
-    return board[row_count-1][col] == 0         # dc e -1 /coloana o dam noi, mai urmeaza sa afle nr randului, si daca ar fi 6 am avea 7 randuri
+    return board[row_count-1][col] == 0         
 
-# daca coloana aleasa este libera, functia ne da o variabila care reprezinta nr randului
+
 def get_next_open_row(board, col):
     for r in range(row_count):
         if board[r][col] == 0:
             return r
 
-# o functie pentru a inversa matricea
+# functie pentru inversare matrice
 def reverse_board(board):
     print(np.flip(board, 0))
 
+    
 def winning_move(board, piece):
     # verificam ce piese sunt pe orizontala
     for c in range(column_count-3):
@@ -89,7 +90,7 @@ width = column_count * squaresize
 size = (width, height)
 
 screen = pygame.display.set_mode(size)
-draw_board()                       # putem folosi variabila board de mai sus in functie dar nu vad la ce ar folosi  # in tutorial a pus si board
+draw_board()                     
 pygame.display.update()
 myfont = pygame.font.SysFont("monospace", 70)
 
@@ -108,7 +109,7 @@ while not game_over:
         pygame.display.update()
 
         if event.type == pygame.MOUSEBUTTONDOWN:
-            pygame.draw.rect(screen, black, (0, 0, width, squaresize))      # deseneaza un patrat nergu pentru a afisa scorul corect
+            pygame.draw.rect(screen, black, (0, 0, width, squaresize))      
             # ask player 1 input
 
             if turn == 0:
@@ -117,11 +118,11 @@ while not game_over:
 
                 if is_valid_location(board, col):
                     row = get_next_open_row(board, col)     # verifica daca randul selectat e liber, daca nu trece la urmatorul
-                    drop_piece(board, row, col, 1)          # pune o piesa in randul verificat mai sus si coloaana calculata mai sus
+                    drop_piece(board, row, col, 1)          # pune o piesa in randul si coloana calculate mai sus
 
                     if winning_move(board, 1):
-                        label = myfont.render("Player 1 Wins!", 1, red)
-                        screen.blit(label, (40, 10))        # sa afiseze label de mai sus, in paranteza avem pozitiile pe display
+                        label = myfont.render("Player 1 Won!", 1, red)
+                        screen.blit(label, (40, 10))       
                         game_over = True
             else:
                 posx = event.pos[0]
@@ -132,7 +133,7 @@ while not game_over:
                     drop_piece(board, row, col, 2)
 
                     if winning_move(board, 2):
-                        label = myfont.render("Player 2 Wins!", 1, green)
+                        label = myfont.render("Player 2 Won!", 1, green)
                         screen.blit(label, (40, 10))
                         game_over = True
 
