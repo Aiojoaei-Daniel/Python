@@ -157,42 +157,6 @@ GameOver = False
 width = 1000
 height = 750
 
-# window = pg.display.set_mode([width, height])
-# font = pg.font.Font(None, 20)
-# clock = pg.time.Clock()
-# input_box = pg.Rect(100, 100, 70, 30)
-# text = ''
-# color = ''
-
-# run = True
-# while run == True:
-#     for event in pg.event.get():
-#         if event.type == pg.QUIT:
-#             pg.quit()
-#             run = False
-#
-#         if event.type == pg.KEYDOWN:
-#             # if active:
-#             if event.key == pg.K_RETURN:
-#                 print(text)
-#                 text = ''
-#             elif event.key == pg.K_BACKSPACE:
-#                 text = text[:-1]
-#             else:
-#                 text += event.unicode
-#
-#     window.fill((30, 30, 30))
-#     txt_surface = font.render(text, True, 'red')
-#     # Resize the box if the text is too long.
-#     width = max(200, txt_surface.get_width() + 10)
-#     input_box.w = width
-#     # Blit the text.
-#     window.blit(txt_surface, (input_box.x + 5, input_box.y + 5))
-#     # Blit the input_box rect.
-#     pg.draw.rect(window, "green", input_box, 2)
-#
-
-
 while GameOver != True:
     if numarP < numar_jucatori:
         for r in range(randuri):
