@@ -12,7 +12,6 @@ row_count = 6
 column_count = 7
 
 
-# creare matrice
 def create_board():
     board = np.zeros((row_count, column_count))
     return board
@@ -22,7 +21,6 @@ def drop_piece(board, row, col, piece):
     board[row][col] = piece                  
 
 
-# verificam daca coloana aleasa este valida
 def is_valid_location(board, col):
     return board[row_count-1][col] == 0         
 
@@ -32,7 +30,7 @@ def get_next_open_row(board, col):
         if board[r][col] == 0:
             return r
 
-# functie pentru inversare matrice
+
 def reverse_board(board):
     print(np.flip(board, 0))
 
@@ -113,12 +111,12 @@ while not game_over:
             # ask player 1 input
 
             if turn == 0:
-                posx = event.pos[0]                         # afla pozitia bilei
-                col = int(math.floor(posx/squaresize))      # calculeaza coloana unde vrem sa punem bila
+                posx = event.pos[0]                        
+                col = int(math.floor(posx/squaresize))     
 
                 if is_valid_location(board, col):
-                    row = get_next_open_row(board, col)     # verifica daca randul selectat e liber, daca nu trece la urmatorul
-                    drop_piece(board, row, col, 1)          # pune o piesa in randul si coloana calculate mai sus
+                    row = get_next_open_row(board, col)     
+                    drop_piece(board, row, col, 1)          
 
                     if winning_move(board, 1):
                         label = myfont.render("Player 1 Won!", 1, red)
